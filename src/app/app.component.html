@@ -1,0 +1,44 @@
+<app-loader *ngIf="loading"></app-loader>
+
+<header class="menu-header animated lightSpeedIn">
+  <div class="logo">
+    <img class="home-profile-img" src="../../assets/images/logo.svg" />
+  </div>
+  <h1 class="headingStyling">The cradle</h1>
+</header>
+
+<span *ngIf="tokens.length != 0; then mainSestion"></span>
+<ng-template #mainSestion>
+  <div class="main-wrapper">
+    <app-menu></app-menu>
+    <router-outlet></router-outlet>
+  </div>
+</ng-template>
+
+<span *ngIf="tokens.length == 0; then loginDiv"></span>
+<ng-template #loginDiv>
+  <div class="login-outer">
+    <button mat-raised-button (click)="login()">
+      <span>login</span>
+    </button>
+    <p style="text-align: center; padding: 30px">{{ message }}</p>
+  </div>
+</ng-template>
+
+<footer>
+  <div class="item">
+    <a href="https://twitter.com/wickedcraniums/" target="_blank">
+      <span>twitter.com/wickedcraniums</span>
+    </a>
+  </div>
+  <div class="item">
+    <a href="https://discord.gg/yBYAdy8fqX" target="_blank">
+      <span>discord.gg/yBYAdy8fqX</span>
+    </a>
+  </div>
+  <div class="item">
+    <a href="https://wickedcranium.com" target="_blank">
+      <span>wickedcranium.com</span>
+    </a>
+  </div>
+</footer>
